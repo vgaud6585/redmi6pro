@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name and Age Input</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    }
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    }
+    table, th, td {
+    border: 1px solid black;
+    }
+    th, td {
+    padding: 10px;
+    text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Save all data into txt file</h1>
+  <h1>Enter Name and Age</h1>
+  <input type="text" id="name" placeholder="Enter Name" required>
+  <input type="number" id="age" placeholder="Enter Age" required>
+  <button onclick="addData()">Add Data</button>
+  <button onclick="downloadData()">Download Data</button>
+
+  <h2>Data Table</h2>
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    let data = [];
+
+    function addData() {
+    const name = document.getElementById('name').value;
+    const age = document.getElementById('age').value;
+
+    if (name && age) {
+    data.push({ name, age });
+    displayData();
+    document.getElementById('name').value = '';
+    document.getElementById('age').value = '';
+    } else {
+    alert('Please enter both name and age.');
+    }
+    }
+
+    function displayData() {
+    const tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+    tableBody.innerHTML = '';
+
+    data.forEach((item) => {
+    const row = tableBody.insertRow();
+    const cell1 = row.insertCell(0);
+    const cell2 = row.insertCell(1);
+    cell1.textContent = item.name;
+    cell2.textContent = item.age;
+    });
+    }
+
+    function downloadData() {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'data.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text File Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Text File Editor</h1>
+    <input type="file" id="fileInput" accept=".txt">
+    <textarea id="textArea" rows="20" cols="50" placeholder="Your text will appear here..."></textarea>
+    <br>
+    <button id="saveButton">Save as New File</button>
+    <button id="overwriteButton">Overwrite File</button>
+
+    <script>
+      document.getElementById('fileInput').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('textArea').value = e.target.result;
+        };
+        reader.readAsText(file);
+    }
+});
+
+document.getElementById('saveButton').addEventListener('click', function() {
+    const text = document.getElementById('textArea').value;
+    const blob = new Blob([text], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'edited_file.txt'; // You can change the name here
+    link.click();
+});
+
+document.getElementById('overwriteButton').addEventListener('click', function() {
+    const text = document.getElementById('textArea').value;
+    const blob = new Blob([text], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'original_file.txt'; // Change this to the original file name if needed
+    link.click();
+});
+    </script>
+</body>
+</html>

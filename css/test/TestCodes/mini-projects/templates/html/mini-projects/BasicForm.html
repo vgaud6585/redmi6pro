@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprehensive HTML Form</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    }
+    form {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    }
+    label {
+    display: block;
+    margin: 10px 0 5px;
+    }
+    input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    }
+    button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    button:hover {
+    background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Basic Form Details</h1>
+  <h1>User Information Form</h1>
+  <form action="/submit" method="POST" enctype="multipart/form-data">
+    <!-- Text Input -->
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+
+    <!-- Last Name Input -->
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+
+    <!-- Email Input -->
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+
+    <!-- Password Input -->
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required placeholder="Enter your password">
+
+    <!-- Phone Number Input -->
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+
+    <!-- Date Input -->
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required>
+
+    <!-- Gender Selection -->
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="">Select your gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+
+    <!-- File Upload -->
+    <label for="profilePicture">Profile Picture:</label>
+    <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
+
+    <!-- Textarea -->
+    <label for="bio">Bio:</label>
+    <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+
+    <!-- Checkbox -->
+    <label>
+      <input type="checkbox" name="subscribe" value="yes"> Subscribe to newsletter
+    </label>
+
+    <!-- Radio Buttons -->
+    <fieldset>
+      <legend>Preferred Contact Method:</legend>
+      <label>
+        <input type="radio" name="contactMethod" value="email" required> Email
+      </label>
+      <label>
+        <input type="radio" name="contactMethod" value="phone"> Phone
+      </label>
+    </fieldset>
+
+    <!-- Submit Button -->
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>

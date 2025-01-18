@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descendant and Child Selector Example</title>
+  <style>
+    /* Descendant Selector */
+    .container p {
+    color: blue;
+    /* This will apply to all <p> elements inside .container */
+    }
+
+    /* Child Combinator Selector */
+    .container > div {
+    background-color: yellow;
+    /* This will apply only to direct <div> children of .container */
+    }
+
+    div h2 {
+    background-color: pink;
+    }
+    div > h2 {
+    background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <p>
+        This paragraph is inside a direct child div of .container.
+      </p>
+    </div>
+    <div>
+      <p>
+        This paragraph is also inside a direct child div of .container.
+      </p>
+      <p>
+        This paragraph is also inside a direct child div of .container.
+      </p>
+    </div>
+    <p>
+      This paragraph is a descendant of .container but not a direct child.
+    </p>
+  </div>
+
+  <div class="box">
+    <div>
+      <div class="subbox">
+        <h2>sonu</h2>
+      </div>
+    </div>
+    <div>
+      <div class="subbox">
+        <pre>
+
+          <h2>sonu</h2>
+        </pre>
+      </div>
+    </div>
+    <div>
+      <div class="subbox2">
+        <h2>sonu verma</h2>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name and Age Input</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    }
+    .container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 12px #aaa;
+    }
+    input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    }
+    button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    button:hover {
+    background-color: #218838;
+    }
+    .output {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #e7f1ff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Enter Your Details</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" placeholder="Enter your age" required>
+
+    <button onclick="displayInfo()">Submit</button>
+
+    <div class="output" id="output" style="display: none;"></div>
+  </div>
+
+  <script>
+    function displayInfo() {
+    // Get the values from the input fields
+    const name = document.getElementById('name').value;
+    const age = document.getElementById('age').value;
+
+    // Create a message to display
+    const message = `Hello, ${name}! You are ${age} years old.`;
+
+    // Display the message in the output div
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerText = message;
+    outputDiv.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

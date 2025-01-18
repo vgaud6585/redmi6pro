@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Box Width</title>
+  <style>
+    #box {
+    width: 200px;
+    /* Initial width */
+    height: 100px;
+    background-color: lightblue;
+    border: 2px solid blue;
+    margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="box"></div>
+  <label for="widthRange">Adjust Box Width:</label>
+  <input type="range" id="widthRange" min="100" max="500" value="200">
+
+  <script>
+    const box = document.getElementById('box');
+    const widthRange = document.getElementById('widthRange');
+
+    // Update the box width when the range input changes
+    widthRange.addEventListener('input', function() {
+    box.style.width = widthRange.value + 'px';
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read Text File</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    }
+    #output {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    white-space: pre-wrap;
+    /* Preserve whitespace and line breaks */
+    }
+  </style>
+</head>
+<body>
+  <h1>test 1</h1>
+  <h1>Read Data from a Text File</h1>
+  <input type="file" id="fileInput" accept=".txt">
+  <div id="output"></div>
+
+  <script>
+    document.getElementById('fileInput').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+    const content = e.target.result;
+    document.getElementById('output').textContent = content;
+    };
+    reader.readAsText(file);
+    } else {
+    document.getElementById('output').textContent = 'No file selected.';
+    }
+    });
+  </script>
+</body>
+</html>
